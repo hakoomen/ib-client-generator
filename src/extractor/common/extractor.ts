@@ -1,7 +1,7 @@
 import { isInterfaceDeclaration, Node } from "typescript";
-import { Generator } from "~/generators";
+import type { GenericExtractor } from "~/extractor";
 
-export default {
+export const extractor = {
   extractPaths: (ast: Node[]) => {
     return ast.find((node) => {
       if (isInterfaceDeclaration(node)) {
@@ -20,4 +20,7 @@ export default {
       }
     });
   },
-} satisfies Generator;
+  extractTargetPath(ast, path, endPoint) {
+    return ast[0];
+  },
+} satisfies GenericExtractor;

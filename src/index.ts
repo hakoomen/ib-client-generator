@@ -1,4 +1,4 @@
-import { bkiGenerator } from "~/generators";
+import { bkiExtractor } from "~/extractor";
 import { parse } from "~/parser";
 
 export async function app() {
@@ -7,7 +7,7 @@ export async function app() {
   console.log(
     await parse({
       source: url,
-      generator: bkiGenerator.default,
+      extractor: bkiExtractor,
       options: {
         endPoint: "/api/AccountType/List",
       },
